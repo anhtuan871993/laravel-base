@@ -7,6 +7,98 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Structure
+
+Laravel-base
+	app					
+		Console				
+		Events				
+			{name}Event.php			
+		Exceptions				
+		Http				
+			Controllers			
+				Controller.php		
+			Middleware			
+			Requests			
+				{function group}		
+					{function name}Request.php	
+		Jobs				
+		Listeners				
+			{name}Listener.php			
+		Models				
+		Policies				
+		Providers				
+		Repositories				
+			BaseRepository.php			
+			{function group}			
+				{function name}Repository.php		
+		Services				
+			{name}Service.php			
+			ExternalService.php			
+		Helpers				
+			AppHelpers.php			
+			ExternalHelpers.php			
+			Constants.php			
+	config		
+		...
+	Modules
+		Admin
+			...
+		User
+			...
+		Website
+			...
+	database					
+		migrations				
+			{ver from_ver to}Migration.php			
+		seeds				
+			{version}			
+				{model}Seeder.php		
+			{version}Seeder.php			
+	public					
+		{theme name}				
+			css			
+			img			
+			js		
+		admin
+		user
+		website
+		uploads				
+			files			
+			images			
+	resources					
+		lang				
+			{lang symbol}			
+				emails		
+					{email name}.php	
+				sms		
+					{sms name}.php	
+				common.php		
+				validator.php		
+				app_lang.php		
+		views				
+			layout			
+				master.blade.php		
+				header.blade.php		
+				footer.blade.php		
+				slider.blade.php		
+			{function group}			
+				{view name}.blade.php		
+			errors			
+				{error code}.blade.php		
+						
+						
+	routes.php			
+		api.php
+		console.php
+		web.php	
+		webAdmin.php
+		webUser.php
+		webWebsite.php
+	.env					
+	.{enviroment_name}.env					
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
