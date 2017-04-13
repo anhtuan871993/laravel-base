@@ -1,0 +1,16 @@
+{
+    "name": "Website",
+    "alias": "website",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\Website\\Providers\\WebsiteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
