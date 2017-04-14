@@ -11,10 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name("home");
+
+//    Route::get('admin/login', '\Modules\Admin\Http\Controllers\AdminController@login')->name('admin-login-get');
+//    Route::post('admin/login', '\Modules\Admin\Http\Controllers\AdminController@login')->name('admin-login-post');
 });
 
-Route::group(['middleware' => ['web'], 'namespace' => 'Modules\Blog'], function () {
-    Route::get('/blog', 'BlogController@index')->name('blog');
-});
+//Route::group(['middleware' => ['admin']], function () {
+//    Route::get('admin/index', '\Modules\Admin\Http\Controllers\AdminController@index')->name('admin-index');
+//    Route::get('admin/logout', '\Modules\Admin\Http\Controllers\AdminController@logout')->name('admin-logout');
+//});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => 'web', 'prefix' => 'user', 'namespace' => 'Modules\User\Http\Controllers'], function()
+Route::group(['middleware' => 'web', 'prefix' => 'user'], function()
 {
     Route::get('/', 'UserController@index');
 });
