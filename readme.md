@@ -10,33 +10,7 @@
 ## Create module
 php artisan module:make <module-name>
 
-app/
-bootstrap/
-vendor/
-Modules/
-  ├── <module-name>/
-      ├── Assets/
-      ├── Config/
-      ├── Console/
-      ├── Database/
-          ├── Migrations/
-          ├── Seeders/
-      ├── Entities/
-      ├── Http/
-          ├── Controllers/
-          ├── Middleware/
-          ├── Requests/
-          ├── routes.php
-      ├── Providers/
-          ├── <module-name>ServiceProvider.php
-      ├── Resources/
-          ├── lang/
-          ├── views/
-      ├── Repositories/
-      ├── Tests/
-      ├── composer.json
-      ├── module.json
-      ├── start.php
+<a href="https://nwidart.com/laravel-modules/v1/basic-usage/creating-a-module">https://nwidart.com/laravel-modules/v1/basic-usage/creating-a-module</a>
 	  
 ## About Laravel
 
