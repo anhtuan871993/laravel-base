@@ -179,7 +179,9 @@ return [
 
         Nwidart\Modules\LaravelModulesServiceProvider::class,
 //        Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
-        Laravel\Passport\PassportServiceProvider::class
+        Laravel\Passport\PassportServiceProvider::class,
+
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class
 
     ],
 
@@ -235,6 +237,9 @@ return [
         'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
         'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
 //        'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
+        'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'jwt' => Tymon\JWTAuth\Providers\JWT\NamshiAdapter::class,
 
     ],
 

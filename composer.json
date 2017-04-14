@@ -10,7 +10,9 @@
         "laravel/tinker": "~1.0",
         "nwidart/laravel-modules" : "1.19.*",
         "cartalyst/sentinel": "2.0.*",
-        "laravel/passport": "*"
+        "laravel/passport": "*",
+        "tymon/jwt-auth": "0.5.*",
+        "league/fractal": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
