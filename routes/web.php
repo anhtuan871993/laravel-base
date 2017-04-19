@@ -15,15 +15,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', function () {
         return view('welcome');
     })->name("home");
-
-//    Route::get('admin/login', '\Modules\Admin\Http\Controllers\AdminController@login')->name('admin-login-get');
-//    Route::post('admin/login', '\Modules\Admin\Http\Controllers\AdminController@login')->name('admin-login-post');
 });
-
-//Route::group(['middleware' => ['admin']], function () {
-//    Route::get('admin/index', '\Modules\Admin\Http\Controllers\AdminController@index')->name('admin-index');
-//    Route::get('admin/logout', '\Modules\Admin\Http\Controllers\AdminController@logout')->name('admin-logout');
-//});
 
 Auth::routes();
 
