@@ -2,16 +2,15 @@
 
 /*
 |--------------------------------------------------------------------------
-| Register Namespaces And Routes
+| Register Namespaces and Routes
 |--------------------------------------------------------------------------
 |
-| When a module starting, this file will executed automatically. This helps
-| to register some namespaces like translator or view. Also this file
-| will load the routes file for each module. You may also modify
-| this file as you want.
+| When your module starts, this file is executed automatically. By default
+| it will only load the module's route file. However, you can expand on
+| it to load anything else from the module, such as a class or view.
 |
 */
 
 if (!app()->routesAreCached()) {
-//    require __DIR__ . '/Http/routes.php';
+    require __DIR__ . '/Http/routes.php';
 }

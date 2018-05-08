@@ -3,6 +3,7 @@
 namespace Modules\Api\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Factory;
 
 class ApiServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class ApiServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerFactories();
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
     /**
@@ -57,13 +60,13 @@ class ApiServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = base_path('resources/views/modules/api');
+        $viewPath = resource_path('views/modules/api');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
         $this->publishes([
             $sourcePath => $viewPath
-        ]);
+        ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/api';
@@ -77,12 +80,24 @@ class ApiServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = base_path('resources/lang/modules/api');
+        $langPath = resource_path('lang/modules/api');
 
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, 'api');
         } else {
             $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'api');
+        }
+    }
+
+    /**
+     * Register an additional directory of factories.
+     * 
+     * @return void
+     */
+    public function registerFactories()
+    {
+        if (! app()->environment('production')) {
+            app(Factory::class)->load(__DIR__ . '/../Database/factories');
         }
     }
 

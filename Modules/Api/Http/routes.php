@@ -1,8 +1,6 @@
 <?php
 
-Route::group([], function () {
-    Route::group(['middleware' => 'jwt.auth'], function () {
-        Route::get('/user', 'LoginController@getUser');
-    });
-    Route::post('/login', 'LoginController@login');
+Route::group(['middleware' => 'web', 'prefix' => 'api', 'namespace' => 'Modules\Api\Http\Controllers'], function()
+{
+    Route::get('/', 'ApiController@index');
 });

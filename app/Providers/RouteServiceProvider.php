@@ -39,7 +39,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        $this->mapWebAdminRoutes();
+        //
     }
 
     /**
@@ -52,22 +52,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-            ->namespace($this->namespace)
-            ->group(base_path('routes/web.php'));
-    }
-
-    /**
-     * Define the "web" routes for the application.
-     *
-     * These routes all receive session state, CSRF protection, etc.
-     *
-     * @return void
-     */
-    protected function mapWebAdminRoutes()
-    {
-        Route::middleware('web')
-            ->namespace('Modules\Admin\Http\Controllers')
-            ->group(base_path('Modules/Admin/Http/routes.php'));
+             ->namespace($this->namespace)
+             ->group(base_path('routes/web.php'));
     }
 
     /**
@@ -80,7 +66,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-            ->namespace('Modules\Api\Http\Controllers')
-            ->group(base_path('Modules/Api/Http/routes.php'));
+             ->middleware('api')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/api.php'));
     }
 }

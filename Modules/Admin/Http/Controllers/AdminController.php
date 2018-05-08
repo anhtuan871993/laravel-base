@@ -5,46 +5,11 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Input;
 
 class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function login()
-    {
-        $email = Input::get('email');
-        $password = Input::get('password');
-        if (Auth::guard('admin')->attempt([
-            'email'    => 'admin@admin.com',
-            'password' => $password
-        ])
-        ) {
-            return redirect()->route('home');
-        };
-
-        return view('admin::login');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function logout()
-    {
-        Auth::guard('admin')->logout();
-
-        return redirect()->route('admin-login-get');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
      * @return Response
      */
     public function index()
@@ -54,7 +19,6 @@ class AdminController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return Response
      */
     public function create()
@@ -64,9 +28,7 @@ class AdminController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
      * @param  Request $request
-     *
      * @return Response
      */
     public function store(Request $request)
@@ -75,7 +37,6 @@ class AdminController extends Controller
 
     /**
      * Show the specified resource.
-     *
      * @return Response
      */
     public function show()
@@ -85,7 +46,6 @@ class AdminController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @return Response
      */
     public function edit()
@@ -95,9 +55,7 @@ class AdminController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      * @param  Request $request
-     *
      * @return Response
      */
     public function update(Request $request)
@@ -106,7 +64,6 @@ class AdminController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
      * @return Response
      */
     public function destroy()

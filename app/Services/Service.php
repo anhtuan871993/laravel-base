@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Services;
+namespace App\Services;
 
-abstract class Service{
+abstract class Service
+{
 
 }

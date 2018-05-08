@@ -7,6 +7,16 @@
             "email": "n.widart@gmail.com"
         }
     ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Api\\Providers\\ApiServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
     "autoload": {
         "psr-4": {
             "Modules\\Api\\": ""

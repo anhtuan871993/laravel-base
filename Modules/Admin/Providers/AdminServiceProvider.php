@@ -3,6 +3,7 @@
 namespace Modules\Admin\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Factory;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,8 @@ class AdminServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerFactories();
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
     /**
@@ -57,13 +60,13 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = base_path('resources/views/modules/admin');
+        $viewPath = resource_path('views/modules/admin');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
         $this->publishes([
             $sourcePath => $viewPath
-        ]);
+        ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/admin';
@@ -77,12 +80,24 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = base_path('resources/lang/modules/admin');
+        $langPath = resource_path('lang/modules/admin');
 
         if (is_dir($langPath)) {
             $this->loadTranslationsFrom($langPath, 'admin');
         } else {
             $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'admin');
+        }
+    }
+
+    /**
+     * Register an additional directory of factories.
+     * 
+     * @return void
+     */
+    public function registerFactories()
+    {
+        if (! app()->environment('production')) {
+            app(Factory::class)->load(__DIR__ . '/../Database/factories');
         }
     }
 

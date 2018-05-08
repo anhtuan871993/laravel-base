@@ -2,37 +2,23 @@
 
 namespace Modules\Api\Http\Controllers;
 
-use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
 
 class ApiController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
      * @return Response
      */
-    public function getUser()
+    public function index()
     {
-        return json_encode(Auth::guard('api-auth')->user());
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function refreshToken()
-    {
-        return '123';
+        return view('api::index');
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return Response
      */
     public function create()
@@ -42,9 +28,7 @@ class ApiController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
      * @param  Request $request
-     *
      * @return Response
      */
     public function store(Request $request)
@@ -53,7 +37,6 @@ class ApiController extends Controller
 
     /**
      * Show the specified resource.
-     *
      * @return Response
      */
     public function show()
@@ -63,7 +46,6 @@ class ApiController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
      * @return Response
      */
     public function edit()
@@ -73,9 +55,7 @@ class ApiController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
      * @param  Request $request
-     *
      * @return Response
      */
     public function update(Request $request)
@@ -84,7 +64,6 @@ class ApiController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
      * @return Response
      */
     public function destroy()
